@@ -1,0 +1,17 @@
+export EDITOR="$(which vim)"
+
+# US English and UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
+# parallel history
+shopt -s histappend
+history -a
+
+# autocorrect typos in path names when using `cd`
+shopt -s cdspell
+# do not autocomplete when accidently pressing `\t` on an empty line
+shopt -s no_empty_cmd_completion
+
+# turn on checkwinsize
+shopt -s checkwinsize

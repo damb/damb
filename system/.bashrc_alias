@@ -1,0 +1,5 @@
+alias rm="rm -i -v"
+alias cp="cp -i"
+alias mv="mv -i"
+
+alias vim-ide="vim -c :Vexplore"

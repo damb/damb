@@ -1,0 +1,8 @@
+prettyjson() {
+  cat $1 | python3 -m json.tool
+}
+
+prettyxml() {
+  cat $1 | xmllint -format -
+}
+
