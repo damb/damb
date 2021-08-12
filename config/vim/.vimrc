@@ -107,6 +107,9 @@ let mapleader="\<space>"
 set foldlevel=1
 set foldmethod=indent
 
+" mouse (normal mode, only)
+set mouse=n
+
 " ----
 " fuzzy file search
 "
