@@ -103,6 +103,10 @@ imap <right> <nop>
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 
+" folding
+set foldlevel=1
+set foldmethod=indent
+
 " ----
 " fuzzy file search
 "
@@ -112,11 +116,10 @@ set path+=**
 " display all matching files when I tab complete
 set wildmenu
 
-" ----
 " Tag jumping
 command! MakeTags !ctags -R .
 
-" ----
+
 " netrw configuration
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -125,24 +128,6 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 10
 let g:netrw_list_hide=netrw_gitignore#Hide().'.*\.swp$'
 
-" ----
-" colorscheme
-colorscheme gruvbox
-set background=dark
-
-" ----
-" folding
-set foldlevel=1
-set foldmethod=indent
-
-" ----
-" vim-latex configuration
-" set grepprg=grep\ -nH\ $*
-" let g:tex_flavor='latex'
-" let g:Tex_DefaultTargetFormat='pdf'
-" let g:Tex_ViewRule_pdf='zathura --fork'
-
-" ----
 " row numbering
 set number relativenumber
 
@@ -151,6 +136,18 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
 augroup END
+
+" ----
+" colorscheme
+colorscheme gruvbox
+set background=dark
+
+" ----
+" vim-latex configuration
+" set grepprg=grep\ -nH\ $*
+" let g:tex_flavor='latex'
+" let g:Tex_DefaultTargetFormat='pdf'
+" let g:Tex_ViewRule_pdf='zathura --fork'
 
 " ----
 " black
