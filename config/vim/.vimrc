@@ -122,7 +122,6 @@ set wildmenu
 " Tag jumping
 command! MakeTags !ctags -R .
 
-
 " netrw configuration
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -133,7 +132,6 @@ let g:netrw_list_hide=netrw_gitignore#Hide().'.*\.swp$'
 
 " row numbering
 set number relativenumber
-
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
