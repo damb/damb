@@ -110,6 +110,9 @@ set foldmethod=indent
 " mouse (normal mode, only)
 set mouse=n
 
+" increase history size
+set history=1000
+
 " ----
 " fuzzy file search
 "
