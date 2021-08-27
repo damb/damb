@@ -1,60 +1,37 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if v:progname == 'vi'
+  set noloadplugins
+endif
 
 " configure the `Leader` key
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 let maplocalleader="\\"
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+if &loadplugins
+  if has('packages')
+    packadd! vim-abolish
+    packadd! vim-fugitive
+    packadd! vim-surround
+    packadd! vim-speeddating
+    packadd! vim-commentary
+    packadd! vim-latex
+    packadd! YouCompleteMe
+    packadd! gruvbox
+    packadd! command-t
+  else
+    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect('pack/bundle/opt/{}')
+  endif
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
 "
-" Keep Plugin commands between vundle#begin/end.
+" Must come *after* the `:packadd!` calls above otherwise the contents of
+" package "ftdetect" directories won't be evaluated.
+filetype indent plugin on
 
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-commentary'
-"Plugin 'vim-latex/vim-latex'
-Plugin 'nvie/vim-flake8'
-"Plugin 'plytophogy/vim-virtualenv'
-"Plugin 'jceb/vim-orgmode'
-Plugin 'christoomey/vim-system-copy'
-Plugin 'morhetz/gruvbox'
-" Plugin 'fatih/vim-go'
-" Plugin 'psf/black'
-
-Plugin 'ycm-core/YouCompleteMe'
-
-"Plugin 'scrooloose/nerdtree'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-" the glaive#Install() should go after the 'call vundle#end()'
-" call glaive#Install()
-" Glaive codefmt plugin[mappings]
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-"                     :PluginUpdate 
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to
-"                     auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 " -----------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors.
 " Also switch on highlighting the last used search pattern.
