@@ -1,10 +1,3 @@
-" This is <~/.vimrc>
-" =============================================================================
-" Configuration of the vim editor
-" -------------------------------
-"
-" =============================================================================
-"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -174,5 +167,3 @@ let g:flake8_cmd=expand($HOME)."/.local/bin/flake8"
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 " let g:ycm_clangd_binary_path = exepath("clangd")
-
-" ---- END of <~/.vimrc> ----
