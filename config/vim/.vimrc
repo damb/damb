@@ -1,6 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" configure the `Leader` key
+nnoremap <SPACE> <Nop>
+let mapleader="\<space>"
+let maplocalleader="\\"
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -91,10 +96,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-" configure the `Leader` key
-nnoremap <SPACE> <Nop>
-let mapleader="\<space>"
 
 " folding
 set foldlevel=1
