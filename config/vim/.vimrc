@@ -18,6 +18,7 @@ if &loadplugins
     packadd! YouCompleteMe
     packadd! gruvbox
     packadd! command-t
+    packadd! pinnacle
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
@@ -83,6 +84,9 @@ set mouse=n
 
 " increase history size
 set history=1000
+
+" always enable the status line
+set laststatus=2
 
 " ----
 " fuzzy file search
