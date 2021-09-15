@@ -124,9 +124,9 @@ set background=dark
 " ----
 " vim-latex configuration
 " set grepprg=grep\ -nH\ $*
-" let g:tex_flavor='latex'
-" let g:Tex_DefaultTargetFormat='pdf'
-" let g:Tex_ViewRule_pdf='zathura --fork'
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='zathura --fork'
 
 " ----
 " black
