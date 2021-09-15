@@ -1,3 +1,5 @@
 [user]
 	name = Daniel Armbruster
 	email = daniel.armbruster@sed.ethz.ch
+[merge]
+	tool = vimdiff
