@@ -6,3 +6,6 @@ prettyxml() {
   cat $1 | xmllint -format -
 }
 
+html2txt() {
+  elinks -dump $1
+}
