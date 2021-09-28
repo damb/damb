@@ -19,6 +19,7 @@ if &loadplugins
     packadd! gruvbox
     packadd! command-t
     packadd! pinnacle
+    packadd! black
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
@@ -130,8 +131,23 @@ let g:Tex_ViewRule_pdf='zathura --fork'
 
 " ----
 " black
-" let g:black_linelength=79
-" let g:black_virtualenv=expand($HOME)."/.local/pipx/venvs/black"
+"
+"  - install black into a dedicated venv in order to have an installation which
+"  is compatible with the python interpreter vim is compatible with (e.g. do
+"  not install with pipx)
+"  - make sure black is not installed in editable mode (i.e. setuptools
+"  "development mode") since in this case the module can't be imported even
+"  when the virtual environment's site-packages path is added to `sys.path`.
+"  - installation:
+"
+"  ```
+"  $ python -m venv venv
+"  $ python -m pip install --upgrade pip
+"  $ python -m pip install --use-feature=in-tree-build .
+"  ```
+"
+let g:black_linelength=79
+let g:black_virtualenv=expand($HOME)."/.vim/pack/bundle/opt/black/venv"
 
 " ----
 " flake8

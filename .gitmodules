@@ -31,3 +31,6 @@
 [submodule "pinnacle"]
 	path = config/vim/.vim/pack/bundle/opt/pinnacle
 	url = https://github.com/wincent/pinnacle.git
+[submodule "black"]
+	path = config/vim/.vim/pack/bundle/opt/black
+	url = https://github.com/psf/black.git
