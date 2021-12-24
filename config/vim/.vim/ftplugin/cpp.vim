@@ -1,2 +1,4 @@
 " C++ specific settings.
-autocmd BufWrite * YcmCompleter Format
+if exists("g:loaded_youcompleteme")
+  autocmd BufWrite * YcmCompleter Format
+endif
