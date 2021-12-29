@@ -165,3 +165,8 @@ let g:flake8_cmd=expand($HOME)."/.local/bin/flake8"
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 " let g:ycm_clangd_binary_path = exepath("clangd")
+"
+" ----
+" To see all leader mappings, including those from plugins:
+"
+"   vim -c 'set t_te=' -c 'set t_ti=' -c 'map <space>' -c q | sort
