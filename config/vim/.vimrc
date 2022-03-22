@@ -15,7 +15,7 @@ if &loadplugins
     packadd! vim-speeddating
     packadd! vim-commentary
     packadd! vim-latex
-    packadd! YouCompleteMe
+    " packadd! YouCompleteMe
     packadd! gruvbox
     packadd! command-t
     packadd! pinnacle
