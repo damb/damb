@@ -1,4 +1,4 @@
-test -d "$HOME/bin" && PATH="$HOME/bin:$PATH"
+test -d "$HOME/bin" && PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # remove duplicate items
 # see: http://unix.stackexchange.com/a/40755
