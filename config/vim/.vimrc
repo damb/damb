@@ -143,7 +143,7 @@ let g:Tex_ViewRule_pdf='zathura --fork'
 "  ```
 "  $ python -m venv venv
 "  $ python -m pip install --upgrade pip
-"  $ python -m pip install --use-feature=in-tree-build .
+"  $ python -m pip install .
 "  ```
 "
 let g:black_linelength=79
