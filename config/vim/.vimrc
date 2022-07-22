@@ -159,8 +159,9 @@ let g:flake8_cmd=expand($HOME)."/.local/bin/flake8"
 " clangd
 "
 " References: 
-" - https://releases.llvm.org/9.0.0/tools/clang/tools/extra/docs/clangd/Installation.html
+" - https://releases.llvm.org/9.0.1/tools/clang/tools/extra/docs/clangd/Installation.html
 "
+let g:ycm_clangd_args = ['--log=verbose', '--pretty', '--header-insertion=iwyu']
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
