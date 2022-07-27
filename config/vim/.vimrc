@@ -14,6 +14,7 @@ if &loadplugins
     packadd! vim-surround
     packadd! vim-speeddating
     packadd! vim-commentary
+    packadd! vim-lexima
     packadd! vim-latex
     " packadd! YouCompleteMe
     packadd! gruvbox
