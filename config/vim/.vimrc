@@ -21,6 +21,7 @@ if &loadplugins
     packadd! command-t
     packadd! pinnacle
     packadd! black
+    packadd! termdebug
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')
@@ -167,6 +168,14 @@ let g:ycm_clangd_args = ['--log=verbose', '--pretty', '--header-insertion=iwyu']
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 " let g:ycm_clangd_binary_path = exepath("clangd")
+"
+" ----
+" termdebug
+"
+" References:
+" - https://www.dannyadam.com/blog/2019/05/debugging-in-vim/
+"
+let termdebug_wide=1
 "
 " ----
 " To see all leader mappings, including those from plugins:
