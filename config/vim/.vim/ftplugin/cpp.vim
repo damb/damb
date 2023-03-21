@@ -5,7 +5,7 @@ if exists("g:loaded_youcompleteme")
   " goto [d]e[c]laration
   nnoremap <buffer><silent> <LocalLeader>dc :YcmCompleter GoToDeclaration<CR>
   " goto [d]e[f]inition
-  nnoremap <buffer><silent> <LocalLeader>df :YcmCompleter GoToDeclaration<CR>
+  nnoremap <buffer><silent> <LocalLeader>df :YcmCompleter GoToDefinition<CR>
   " goto [c]allers
   nnoremap <buffer><silent> <LocalLeader>c :YcmCompleter GoToCallers<CR>
 endif
