@@ -125,6 +125,13 @@ colorscheme gruvbox
 set background=dark
 
 " ----
+" command-t opt-in since lua is supported only for neovim
+"
+" References:
+" - https://github.com/wincent/command-t/blob/459e9c6e7d5bd8f559bbf8101869d0c9e800b154/doc/command-t.txt
+let g:CommandTPreferredImplementation='ruby'
+
+" ----
 " vim-latex configuration
 " set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
