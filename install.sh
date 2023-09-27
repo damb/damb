@@ -29,6 +29,10 @@ fi
 # vim
 for c in config/vim/.vimrc config/vim/.vim
 do
+  if [[ -e $HOME/$(basename $c) && ! -L  $HOME/$(basename $c) ]]
+  then
+    mv "$HOME/$(basename $c)" "$HOME/$(basename $c).bak"
+  fi
   if [[ ! -L  $HOME/$(basename $c) ]]
   then
     ln -s -t $HOME "$(realpath $c)"
@@ -38,6 +42,10 @@ done
 # git
 for c in config/git/.gitconfig
 do
+  if [[ -f $HOME/$(basename $c) && ! -L  $HOME/$(basename $c) ]]
+  then
+    mv "$HOME/$(basename $c)" "$HOME/$(basename $c).bak"
+  fi
   if [[ ! -L  $HOME/$(basename $c) ]]
   then
     ln -s -t $HOME "$(realpath $c)"
