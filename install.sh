@@ -1,16 +1,18 @@
 #!/bin/bash
 
-#set -x
+# set -x
 
 create_symlink() {
-  if [[ ! -L "$HOME/$(basename $1)" ]]
+  local link_dir=$1
+  local target=$2
+  if [[ ! -L "${link_dir}/$(basename $target)" ]]
   then
-    if [[ -e "$HOME/$(basename $1)" ]]
+    if [[ -e "${link_dir}/$(basename $target)" ]]
     then
-      mv "$HOME/$(basename $1)" "$HOME/$(basename $1).bak"
+      mv "${link_dir}/$(basename $target)" "${link_dir}/$(basename $target).bak"
     fi
 
-    ln -s -t $HOME "$(realpath $1)"
+    ln -s -t "${link_dir}" "$(realpath $target)"
   fi
 }
 
@@ -28,15 +30,15 @@ create_bashrc () {
 }
 
 # bash
-create_symlink runcom/.bash_profile
+create_symlink $HOME runcom/.bash_profile
 create_bashrc
 
 # vim
 for c in config/vim/.vimrc config/vim/.vim
 do
-  create_symlink "$c"
+  create_symlink $HOME "$c"
 done
 
 # git
-create_symlink config/git/.gitconfig
+create_symlink $HOME config/git/.gitconfig
 
