@@ -2,53 +2,41 @@
 
 #set -x
 
-# bash
-if [[ -f $HOME/.bash_profile && ! -L $HOME/.bash_profile ]]
-then
-  mv $HOME/.bash_profile $HOME/.bash_profile.bak
-fi
-
-for c in runcom/.bash_profile
-do
-  if [[ ! -L  $HOME/$(basename $c) ]]
+create_symlink() {
+  if [[ ! -L "$HOME/$(basename $1)" ]]
   then
-    ln -s -t $HOME "$(realpath $c)"
-  fi
-done
+    if [[ -e "$HOME/$(basename $1)" ]]
+    then
+      mv "$HOME/$(basename $1)" "$HOME/$(basename $1).bak"
+    fi
 
-# bashrc
-if [[ -f $HOME/.bashrc && ! -L $HOME/.bashrc ]]
-then
-  mv $HOME/.bashrc $HOME/.bashrc.bak
-fi
-if [[ ! -L $HOME/.bashrc ]]
-then
-  ln -s -T $HOME/.bash_profile $HOME/.bashrc
-fi
+    ln -s -t $HOME "$(realpath $1)"
+  fi
+}
+
+create_bashrc () {
+  local bashrc="$HOME/.bashrc"
+  if [[ ! -L "$bashrc" ]]
+  then
+    if [[ -e "$bashrc" ]]
+    then
+      mv "$bashrc" "${bashrc}.bak"
+    fi
+
+    ln -s -T "$HOME/.bash_profile" "$bashrc"
+  fi
+}
+
+# bash
+create_symlink runcom/.bash_profile
+create_bashrc
 
 # vim
 for c in config/vim/.vimrc config/vim/.vim
 do
-  if [[ -e $HOME/$(basename $c) && ! -L  $HOME/$(basename $c) ]]
-  then
-    mv "$HOME/$(basename $c)" "$HOME/$(basename $c).bak"
-  fi
-  if [[ ! -L  $HOME/$(basename $c) ]]
-  then
-    ln -s -t $HOME "$(realpath $c)"
-  fi
+  create_symlink "$c"
 done
 
 # git
-for c in config/git/.gitconfig
-do
-  if [[ -f $HOME/$(basename $c) && ! -L  $HOME/$(basename $c) ]]
-  then
-    mv "$HOME/$(basename $c)" "$HOME/$(basename $c).bak"
-  fi
-  if [[ ! -L  $HOME/$(basename $c) ]]
-  then
-    ln -s -t $HOME "$(realpath $c)"
-  fi
-done
+create_symlink config/git/.gitconfig
 
