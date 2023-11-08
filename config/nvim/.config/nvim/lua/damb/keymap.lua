@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- normal mode (=n) --
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<Leader>e", ":Lex 30<CR>", opts)
 
 -- command-t
 keymap("n", "<Leader>ff", "<Plug>(CommandT)")
