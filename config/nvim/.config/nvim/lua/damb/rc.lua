@@ -55,6 +55,7 @@ vim.opt.shell = "sh" -- shell to use for `!`, `:!`, `system()` etc.
 vim.opt.shiftwidth = 2 -- spaces per tab (when shifting)
 vim.opt.sidescroll = 0 -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 3 -- same as scrolloff, but for columns
+vim.opt.spelllang = { "en", "de", "es", "pl", "fr" }
 vim.opt.smartcase = true -- don't ignore case in searches if uppercase characters present
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true -- open horizontal splits below current window
