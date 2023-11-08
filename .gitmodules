@@ -2,16 +2,16 @@
 	path = config/vim/.vim/pack/bundle/opt/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim-fugitive"]
-	path = config/vim/.vim/pack/bundle/opt/vim-fugitive
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim-surround"]
-	path = config/vim/.vim/pack/bundle/opt/vim-surround
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim-speeddating"]
 	path = config/vim/.vim/pack/bundle/opt/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
 [submodule "vim-commentary"]
-	path = config/vim/.vim/pack/bundle/opt/vim-commentary
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "vim-latex"]
 	path = config/vim/.vim/pack/bundle/opt/vim-latex
@@ -23,7 +23,7 @@
 	path = config/vim/.vim/pack/bundle/opt/gruvbox
 	url = https://github.com/morhetz/gruvbox.git
 [submodule "command-t"]
-	path = config/vim/.vim/pack/bundle/opt/command-t
+	path = config/nvim/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
 [submodule "YouCompleteMe"]
 	path = config/vim/.vim/pack/bundle/opt/YouCompleteMe
@@ -37,3 +37,69 @@
 [submodule "vim-lexima"]
 	path = config/vim/.vim/pack/bundle/opt/vim-lexima
 	url = git@github.com:cohama/lexima.vim.git
+[submodule "gruvbox.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/gruvbox.nvim
+	url = https://github.com/ellisonleao/gruvbox.nvim.git
+[submodule "nvim-cmp"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "cmp-buffer"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer.git
+[submodule "cmp-path"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp-path
+	url = https://github.com/hrsh7th/cmp-path.git
+[submodule "cmp-cmdline"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp-cmdline
+	url = https://github.com/hrsh7th/cmp-cmdline.git
+[submodule "cmp_luasnip"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp_luasnip
+	url = https://github.com/saadparwaiz1/cmp_luasnip.git
+[submodule "LuaSnip"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
+[submodule "friendly-snippets"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/friendly-snippets
+	url = https://github.com/rafamadriz/friendly-snippets.git
+[submodule "nvim-lspconfig"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "mason-lspconfig"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
+[submodule "mason"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/mason.nvim
+	url = https://github.com/williamboman/mason.nvim
+[submodule "cmp-nvim-lsp"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "mason.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/mason.nvim
+	url = https://github.com/williamboman/mason.nvim
+[submodule "mason-lspconfig.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim.git
+[submodule "cmp-nvim-lua"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua.git
+[submodule "nvim-treesitter"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule "nvim-autopairs"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/nvim-autopairs
+	url = https://github.com/windwp/nvim-autopairs.git
+[submodule "vim-repeat"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "none-ls.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/none-ls.nvim
+	url = https://github.com/nvimtools/none-ls.nvim.git
+[submodule "plenary.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "lualine.nvim"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim
+[submodule "vim-illuminate"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-illuminate
+	url = https://github.com/RRethy/vim-illuminate.git
