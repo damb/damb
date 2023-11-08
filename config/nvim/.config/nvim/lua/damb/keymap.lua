@@ -17,6 +17,14 @@ keymap("n", "<Leader>fj", "<Plug>(CommandTJump)")
 keymap("n", "<Leader>fg", "<Plug>(CommandTGit)")
 keymap("n", "<Leader>fr", "<Plug>(CommandTRipgrep)")
 
+-- search and replace
+keymap(
+  "n",
+  "<Leader>s",
+  ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left>",
+  { noremap = true }
+)
+
 -- insert mode (=i) --
 
 -- visual mode (=v) --
