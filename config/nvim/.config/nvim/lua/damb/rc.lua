@@ -14,6 +14,7 @@ vim.opt.directory = vim.opt.directory + "." -- fallback
 vim.opt.expandtab = true -- always use spaces instead of tabs
 vim.opt.foldlevel = 1
 vim.opt.foldmethod = "indent" -- folds are automatically defined by the indent of the lines
+vim.opt.guicursor = "" -- disable cursor styling
 vim.opt.hidden = true -- allows you to hide buffers with unsaved changes without being prompted
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
 vim.opt.incsearch = true -- show match while typing pattern
@@ -57,6 +58,7 @@ vim.opt.sidescroll = 0 -- sidescroll in jumps because terminals are slow
 vim.opt.sidescrolloff = 3 -- same as scrolloff, but for columns
 vim.opt.spelllang = { "en", "de", "es", "pl", "fr" }
 vim.opt.smartcase = true -- don't ignore case in searches if uppercase characters present
+vim.opt.smartindent = true -- enable smart indenting
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true -- open horizontal splits below current window
 vim.opt.splitright = true -- open vertical splits to the right of the current window
@@ -73,7 +75,7 @@ else
   vim.opt.undofile = true -- actually use undo files
 end
 
-vim.opt.updatetime = 300 -- faster completion (4000ms default)
+vim.opt.updatetime = 50 -- faster completion (4000ms default)
 vim.opt.updatecount = 0 -- update swapfiles every 80 typed chars
 vim.opt.viewdir = config .. "/view//" -- where to store files for `:mkview`
 vim.opt.wildignore = vim.opt.wildignore + "*.o,*.so" -- patterns to ignore during file-navigation
