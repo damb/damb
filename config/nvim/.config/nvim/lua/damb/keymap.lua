@@ -27,6 +27,10 @@ keymap("v", ">", ">gv", opts)
 
 -- visual block vode (=x) --
 
+-- move text up and down
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
 -- term mode (=t) --
 
 -- command mode (=c) --
