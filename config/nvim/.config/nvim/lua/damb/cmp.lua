@@ -34,14 +34,13 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
-    ["<C-y>"] = cmp.config.disable,
+    -- Accept currently selected item.
+    -- Set `select` to `false` to only confirm explicitly selected items.
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    -- Accept currently selected item.
-    -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings#luasnip
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
