@@ -19,6 +19,7 @@ ts_config.setup({
     "python",
     "rust",
     "toml",
+    "vimdoc",
     "xml",
     "yaml",
   },
