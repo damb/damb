@@ -21,6 +21,13 @@ local function lsp_keymaps(bufnr)
     "<cmd>lua vim.lsp.buf.format({async = true})<CR>",
     opts
   )
+  keymap(
+    bufnr,
+    "x",
+    "<leader>lf",
+    "<cmd>lua vim.lsp.buf.format({async = true})<CR>",
+    opts
+  )
   keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 end
 
