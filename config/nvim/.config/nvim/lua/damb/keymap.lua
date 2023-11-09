@@ -10,6 +10,15 @@ vim.g.maplocalleader = "\\"
 -- normal mode (=n) --
 keymap("n", "<Leader>e", ":Lex 30<CR>", opts)
 
+-- open last buffer (i.e. the alternate file)
+keymap("n", "<Leader><Leader>", "<C-^>", opts)
+
+keymap("n", "<Leader>o", ":only<CR>", opts)
+-- close buffer
+keymap("n", "<Leader>q", ":quit<CR>", opts)
+keymap("n", "<Leader>w", ":write<CR>", opts)
+keymap("n", "<Leader>x", ":xit<CR>", opts)
+
 -- search and replace
 keymap(
   "n",
