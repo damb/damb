@@ -18,6 +18,7 @@ ts_config.setup({
     "markdown",
     "python",
     "rust",
+    "toml",
     "xml",
     "yaml",
   },
