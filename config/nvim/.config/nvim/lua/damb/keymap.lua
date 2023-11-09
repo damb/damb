@@ -25,6 +25,10 @@ keymap(
   { noremap = true }
 )
 
+-- undotree
+keymap("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
+
+
 -- insert mode (=i) --
 
 -- visual mode (=v) --

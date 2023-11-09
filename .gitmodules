@@ -103,3 +103,6 @@
 [submodule "vim-illuminate"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/vim-illuminate
 	url = https://github.com/RRethy/vim-illuminate.git
+[submodule "undotree"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/undotree
+	url = https://github.com/mbbill/undotree.git

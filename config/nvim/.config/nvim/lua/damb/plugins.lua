@@ -19,6 +19,7 @@ if vim.o.loadplugins then
   vim.cmd("packadd! nvim-treesitter")
   vim.cmd("packadd! plenary.nvim")
   vim.cmd("packadd! termdebug")
+  vim.cmd("packadd! undotree")
   vim.cmd("packadd! vim-commentary")
   vim.cmd("packadd! vim-fugitive")
   vim.cmd("packadd! vim-illuminate")
