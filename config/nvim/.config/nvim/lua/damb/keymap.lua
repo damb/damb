@@ -28,6 +28,13 @@ keymap("n", "<Leader>fr", "<Plug>(CommandTRipgrep)", opts)
 -- undotree
 keymap("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
 
+-- fugitive
+keymap("n", "<Leader>gg", ":Git<CR>", opts)
+keymap("n", "<Leader>gs", ":Git status<CR>", opts)
+keymap("n", "<Leader>gd", ":Git diff<CR>", opts)
+keymap("n", "<Leader>gc", ":Git commit<CR>", opts)
+keymap("n", "<Leader>gp", ":Git push<CR>", opts)
+keymap("n", "<Leader>gl", ":Git log<CR>", opts)
 
 -- insert mode (=i) --
 
