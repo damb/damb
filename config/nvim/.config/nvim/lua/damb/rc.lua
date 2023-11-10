@@ -76,7 +76,7 @@ else
 end
 
 vim.opt.updatetime = 50 -- faster completion (4000ms default)
-vim.opt.updatecount = 0 -- update swapfiles every 80 typed chars
+vim.opt.updatecount = 80 -- update swapfiles every 80 typed chars
 vim.opt.viewdir = config .. "/view//" -- where to store files for `:mkview`
 vim.opt.wildignore = vim.opt.wildignore + "*.o,*.so" -- patterns to ignore during file-navigation
 vim.opt.writebackup = false -- don't keep backups after writing
