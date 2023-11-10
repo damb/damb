@@ -1,21 +1,12 @@
-[submodule "vim-abolish"]
-	path = config/vim/.vim/pack/bundle/opt/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
 [submodule "vim-fugitive"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim-surround"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim-speeddating"]
-	path = config/vim/.vim/pack/bundle/opt/vim-speeddating
-	url = https://github.com/tpope/vim-speeddating.git
 [submodule "vim-commentary"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim-latex"]
-	path = config/vim/.vim/pack/bundle/opt/vim-latex
-	url = https://github.com/vim-latex/vim-latex.git
 [submodule "vim-pathogen"]
 	path = config/vim/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -25,18 +16,6 @@
 [submodule "command-t"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "YouCompleteMe"]
-	path = config/vim/.vim/pack/bundle/opt/YouCompleteMe
-	url = https://github.com/ycm-core/YouCompleteMe.git
-[submodule "pinnacle"]
-	path = config/vim/.vim/pack/bundle/opt/pinnacle
-	url = https://github.com/wincent/pinnacle.git
-[submodule "black"]
-	path = config/vim/.vim/pack/bundle/opt/black
-	url = https://github.com/psf/black.git
-[submodule "vim-lexima"]
-	path = config/vim/.vim/pack/bundle/opt/vim-lexima
-	url = git@github.com:cohama/lexima.vim.git
 [submodule "gruvbox.nvim"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/gruvbox.nvim
 	url = https://github.com/ellisonleao/gruvbox.nvim.git
