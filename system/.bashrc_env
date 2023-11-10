@@ -1,4 +1,4 @@
-export EDITOR="$(which vim)"
+export EDITOR="$(which nvim)"
 
 # US English and UTF-8
 export LC_ALL="en_US.UTF-8"
