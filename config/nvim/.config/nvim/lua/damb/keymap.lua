@@ -28,22 +28,22 @@ keymap(
 )
 
 -- command-t
-keymap("n", "<Leader>ff", "<Plug>(CommandT)", opts)
 keymap("n", "<Leader>fb", "<Plug>(CommandTBuffer)", opts)
-keymap("n", "<Leader>fj", "<Plug>(CommandTJump)", opts)
+keymap("n", "<Leader>ff", "<Plug>(CommandT)", opts)
 keymap("n", "<Leader>fg", "<Plug>(CommandTGit)", opts)
+keymap("n", "<Leader>fj", "<Plug>(CommandTJump)", opts)
 keymap("n", "<Leader>fr", "<Plug>(CommandTRipgrep)", opts)
 
 -- undotree
 keymap("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
 
 -- fugitive
-keymap("n", "<Leader>gg", ":Git<CR>", opts)
-keymap("n", "<Leader>gs", ":Git status<CR>", opts)
-keymap("n", "<Leader>gd", ":Git diff<CR>", opts)
 keymap("n", "<Leader>gc", ":Git commit<CR>", opts)
-keymap("n", "<Leader>gp", ":Git push<CR>", opts)
+keymap("n", "<Leader>gd", ":Git diff<CR>", opts)
+keymap("n", "<Leader>gg", ":Git<CR>", opts)
 keymap("n", "<Leader>gl", ":Git log<CR>", opts)
+keymap("n", "<Leader>gp", ":Git push<CR>", opts)
+keymap("n", "<Leader>gs", ":Git status<CR>", opts)
 
 -- insert mode (=i) --
 
