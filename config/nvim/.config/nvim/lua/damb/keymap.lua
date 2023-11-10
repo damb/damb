@@ -27,6 +27,12 @@ keymap(
   { noremap = true }
 )
 
+-- disable cursor
+keymap("n", "<Down>", "<Nop>", opts)
+keymap("n", "<Left>", "<Nop>", opts)
+keymap("n", "<Right>", "<Nop>", opts)
+keymap("n", "<Up>", "<Nop>", opts)
+
 -- command-t
 keymap("n", "<Leader>fb", "<Plug>(CommandTBuffer)", opts)
 keymap("n", "<Leader>ff", "<Plug>(CommandT)", opts)
@@ -46,6 +52,12 @@ keymap("n", "<Leader>gp", ":Git push<CR>", opts)
 keymap("n", "<Leader>gs", ":Git status<CR>", opts)
 
 -- insert mode (=i) --
+
+-- disable cursor
+keymap("i", "<Down>", "<Nop>", opts)
+keymap("i", "<Left>", "<Nop>", opts)
+keymap("i", "<Right>", "<Nop>", opts)
+keymap("i", "<Up>", "<Nop>", opts)
 
 -- visual mode (=v) --
 
