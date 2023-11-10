@@ -7,6 +7,7 @@ end
 ts_config.setup({
   ensure_installed = {
     "bash",
+    "bibtex",
     "c",
     "cmake",
     "cpp",
