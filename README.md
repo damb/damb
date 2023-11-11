@@ -1,15 +1,34 @@
 # "dotfiles" and system configuration
 
+## Dependencies
+
+- [Bash](https://www.gnu.org/software/bash/)
+- [Git](https://git-scm.com/)
+- [Neovim](https://neovim.io/)
+- [Nerd Fonts](https://www.nerdfonts.com/), e.g. [Fira Code
+  Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode)
+
 ## Installation
 
-First of all, clone the repository
+First of all, make sure the required dependencies are installed. E.g.
+
+- **Gentoo**:
+
+    Install dependencies:
+
+    ```
+    emerge --ask media-fonts/firacode-nerdfont dev-vcs/git app-editors/neovim
+    ```
+
+
+Next, clone the repository
 
 ```
 git clone --recurse-submodules git@github.com:damb/damb.git .dotfiles && \
   cd .dotfiles
 ```
 
-Next, run
+and run
 
 ```
 ./install.sh
