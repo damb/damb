@@ -1,4 +1,4 @@
 {
   "workspace.checkThirdParty": false,
-  "workspace.ignoreDir": ["pack"]
+  "workspace.ignoreDir": ["pack", "undo"]
 }
