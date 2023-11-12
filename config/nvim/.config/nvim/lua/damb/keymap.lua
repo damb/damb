@@ -49,7 +49,7 @@ keymap("n", "<Leader>gd", ":Git diff<CR>", opts)
 keymap("n", "<Leader>gg", ":Git<CR>", opts)
 keymap("n", "<Leader>gl", ":Git log<CR>", opts)
 keymap("n", "<Leader>gp", ":Git push<CR>", opts)
-keymap("n", "<Leader>gs", ":Git status<CR>", opts)
+keymap("n", "<Leader>gs", ":Git show<CR>", opts)
 keymap("n", "<Leader>gw", ":Gw<CR>", opts)
 
 -- insert mode (=i) --
