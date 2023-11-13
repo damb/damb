@@ -17,3 +17,8 @@ vim.api.nvim_create_autocmd(
     command = "if &nu | set nornu | endif",
   }
 )
+
+vim.api.nvim_create_autocmd(
+  { "TermOpen" },
+  { pattern = "*", command = "startinsert" }
+)
