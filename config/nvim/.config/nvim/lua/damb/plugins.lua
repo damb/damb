@@ -26,6 +26,7 @@ if vim.o.loadplugins then
   vim.cmd("packadd! vim-repeat")
   vim.cmd("packadd! vim-rhubarb")
   vim.cmd("packadd! vim-surround")
+  vim.cmd("packadd! vim-unimpaired")
 end
 
 -- Automatic, language-dependent indentation, syntax coloring and other
