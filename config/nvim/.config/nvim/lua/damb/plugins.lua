@@ -24,6 +24,7 @@ if vim.o.loadplugins then
   vim.cmd("packadd! vim-fugitive")
   vim.cmd("packadd! vim-illuminate")
   vim.cmd("packadd! vim-repeat")
+  vim.cmd("packadd! vim-rhubarb")
   vim.cmd("packadd! vim-surround")
 end
 

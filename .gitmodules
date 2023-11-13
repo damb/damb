@@ -85,3 +85,6 @@
 [submodule "undotree"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "vim-rhubarb"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
