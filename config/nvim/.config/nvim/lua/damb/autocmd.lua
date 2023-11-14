@@ -22,3 +22,8 @@ vim.api.nvim_create_autocmd(
   { "TermOpen" },
   { pattern = "*", command = "startinsert" }
 )
+
+vim.api.nvim_create_autocmd(
+  { "BufReadPost" },
+  { pattern = "fugitive://*", command = "set bufhidden=delete" }
+)
