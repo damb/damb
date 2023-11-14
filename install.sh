@@ -39,4 +39,4 @@ done
 
 # nvim
 mkdir -p "$HOME/.config"
-create_symlink "$HOME/.config config/nvim/.config/nvim"
+create_symlink "$HOME/.config" "config/nvim/.config/nvim"
