@@ -42,5 +42,7 @@ mkdir -p "$HOME/.config"
 
 # nvim
 create_symlink "$HOME/.config" "config/nvim/.config/nvim"
+# wallpapers
+create_symlink "$HOME/.config" "config/bg/.config/bg"
 # wezterm
 create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
