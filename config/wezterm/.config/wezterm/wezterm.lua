@@ -11,13 +11,13 @@ end
 --   - 'Gruvbox Dark (Gogh)'
 --   - 'GruvboxDarkHard',
 --   - 'Solarized Dark Higher Contrast (Gogh)'
-config.color_scheme = 'Argonaut'
+config.color_scheme = "Argonaut"
 config.colors = {
   -- Cell background color when the current cell is occupied by the cursor and the cursor style is set to Block
-  cursor_bg = '#ffffff',
+  cursor_bg = "#ffffff",
   -- Text color when the current cell is occupied by the cursor
-  cursor_fg = '#000000',
-  cursor_border = '#aaaaaa'
+  cursor_fg = "#000000",
+  cursor_border = "#aaaaaa",
 }
 config.enable_scroll_bar = false
 config.enable_tab_bar = false
@@ -28,6 +28,5 @@ config.inactive_pane_hsb = {
 }
 config.scrollback_lines = 10000
 config.warn_about_missing_glyphs = false
-
 
 return config
