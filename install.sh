@@ -48,4 +48,6 @@ create_symlink "$HOME/.config" "config/bg/.config/bg"
 create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
 # i3wm
 create_symlink "$HOME/.config" "config/i3/.config/i3"
+# sway
+create_symlink "$HOME/.config" "config/sway/.config/sway"
 
