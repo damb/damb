@@ -37,6 +37,10 @@ for c in config/vim/.vimrc config/vim/.vim; do
 	create_symlink "$HOME" "$c"
 done
 
-# nvim
+# --
 mkdir -p "$HOME/.config"
+
+# nvim
 create_symlink "$HOME/.config" "config/nvim/.config/nvim"
+# wezterm
+create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
