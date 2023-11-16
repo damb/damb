@@ -46,3 +46,6 @@ create_symlink "$HOME/.config" "config/nvim/.config/nvim"
 create_symlink "$HOME/.config" "config/bg/.config/bg"
 # wezterm
 create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
+# i3wm
+create_symlink "$HOME/.config" "config/i3/.config/i3"
+
