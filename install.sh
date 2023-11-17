@@ -1,16 +1,19 @@
 #!/bin/bash
 
 # set -x
+set -e
 
 create_symlink() {
 	local link_dir=$1
 	local target=$2
-	if [[ ! -L "${link_dir}/$(basename $target)" ]]; then
-		if [[ -e "${link_dir}/$(basename $target)" ]]; then
-			mv "${link_dir}/$(basename $target)" "${link_dir}/$(basename $target).bak"
+  local real_target
+  real_target="${link_dir}/$(basename "${target}")"
+	if [[ ! -L "${real_target}" ]]; then
+		if [[ -e "${real_target}" ]]; then
+			mv "${real_target}" "${real_target}.bak"
 		fi
 
-		ln -s -t "${link_dir}" "$(realpath $target)"
+		ln -s -t "${link_dir}" "$(realpath "${target}")"
 	fi
 }
 
@@ -51,3 +54,4 @@ create_symlink "$HOME/.config" "config/i3/.config/i3"
 # sway
 create_symlink "$HOME/.config" "config/sway/.config/sway"
 
+exit 0
