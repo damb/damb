@@ -19,10 +19,10 @@ keymap("n", "<Leader>q", ":quit<CR>", opts)
 keymap("n", "<Leader>w", ":write<CR>", opts)
 keymap("n", "<Leader>x", ":xit<CR>", opts)
 
--- search and replace
+-- search and replace (mnemonic: replace)
 keymap(
   "n",
-  "<Leader>s",
+  "<Leader>r",
   ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left>",
   { noremap = true }
 )
