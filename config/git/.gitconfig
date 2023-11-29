@@ -2,7 +2,7 @@
 	name = Daniel Armbruster
 	email = dani.armbruster@gmail.com
 [merge]
-  tool = vimdiff
+  tool = nvim -d
 [color]
   diff = auto
   status = auto
