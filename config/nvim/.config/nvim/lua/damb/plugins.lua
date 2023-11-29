@@ -7,6 +7,7 @@ if vim.o.loadplugins then
   vim.cmd("packadd! cmp-path")
   vim.cmd("packadd! cmp_luasnip")
   vim.cmd("packadd! command-t")
+  vim.cmd("packadd! ferret")
   vim.cmd("packadd! friendly-snippets")
   vim.cmd("packadd! gruvbox.nvim")
   vim.cmd("packadd! lualine.nvim")

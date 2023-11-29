@@ -33,12 +33,13 @@ keymap("n", "<Left>", "<Nop>", opts)
 keymap("n", "<Right>", "<Nop>", opts)
 keymap("n", "<Up>", "<Nop>", opts)
 
--- command-t
+-- command-t & ferret
 keymap("n", "<Leader>fb", "<Plug>(CommandTBuffer)", opts)
 keymap("n", "<Leader>ff", "<Plug>(CommandT)", opts)
 keymap("n", "<Leader>fg", "<Plug>(CommandTGit)", opts)
 keymap("n", "<Leader>fj", "<Plug>(CommandTJump)", opts)
 keymap("n", "<Leader>fr", "<Plug>(CommandTRipgrep)", opts)
+keymap("n", "<Leader>fa", ":Ack ", opts)
 
 -- undotree
 keymap("n", "<Leader>u", ":UndotreeToggle<CR>", opts)
