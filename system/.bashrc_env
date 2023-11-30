@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export EDITOR="$(which nvim)"
 
 # US English and UTF-8
