@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -d "$HOME/.local/etc/bash_completion.d" ]]
+then
+  for bcfile in "$HOME/.local/etc/bash_completion.d/*"
+  do
+    . $bcfile
+  done
+fi
