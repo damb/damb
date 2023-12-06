@@ -9,6 +9,12 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+
+# Configuration options:
+# - "work"
+# - "laptop_only"
+set $screenlayout "work"
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -230,12 +236,15 @@ bindsym $mod+u border none
 # (effectively toggles when you only have two outputs)
 bindsym $mod+x move workspace to output right
 
-# Monitor setup (generated with arandr)
+# Monitor setup
+# NOTE(damb): `arandr` may be of great help to configure the screens.
+exec_always --no-startup-id $HOME/.config/i3/align_workspaces.py $screenlayout
+
 # Laptop, only
 # exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off 
-# Two external 27" monitors
-exec_always --no-startup-id xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal 
-# Two external 27" monitors + Laptop
+# Two external 27" monitors - home
+# exec_always --no-startup-id xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+# Two external 27" monitors + Laptop - home
 # exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 5120x0 --rotate normal --output DP-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal 
 
 # Desktop background
