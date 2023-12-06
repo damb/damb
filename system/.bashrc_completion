@@ -1,9 +1,13 @@
 #!/bin/bash
 
-if [[ -d "$HOME/.local/etc/bash_completion.d" ]]
+path_completion="$HOME/.local/etc/bash_completion.d"
+
+if [[ -d "$path_completion" ]]
 then
-  for bcfile in "$HOME/.local/etc/bash_completion.d/*"
+  for f in "$path_completion"/*
   do
-    . $bcfile
+    test -f "$f" && . "$f"
   done
 fi
+
+unset path_completion
