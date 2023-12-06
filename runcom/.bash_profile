@@ -7,7 +7,7 @@ PATH_DOTFILES=$HOME/.dotfiles
 
 # source dotfiles
 for DOTFILE in \
-  "$PATH_DOTFILES"/system/.bashrc_{env,path,prompt,function,alias,custom,completion} \
+  "$PATH_DOTFILES"/system/.bashrc_{env,path,prompt,function,alias,fzf,completion,custom} \
   "$PATH_DOTFILES"/system/locale.conf
 do
   test -f "$DOTFILE" && . "$DOTFILE"

@@ -94,3 +94,6 @@
 [submodule "ferret"]
 	path = config/nvim/.config/nvim/pack/bundle/opt/ferret
 	url = https://github.com/wincent/ferret.git
+[submodule "fzf"]
+	path = config/fzf/.fzf
+	url = https://github.com/junegunn/fzf.git

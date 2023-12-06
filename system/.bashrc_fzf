@@ -1,0 +1,13 @@
+#!/bin/bash
+
+path_fzf_shell="$HOME/.fzf/shell" 
+
+if [[ -d "$path_fzf_shell" ]]
+then
+  for f in "$path_fzf_shell"/*
+  do
+    test -f "$f" && . "$f"
+  done
+fi
+
+unset path_fzf_shell

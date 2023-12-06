@@ -40,6 +40,10 @@ for c in config/vim/.vimrc config/vim/.vim; do
 	create_symlink "$HOME" "$c"
 done
 
+# fzf
+create_symlink "$HOME" config/fzf/.fzf
+~/.fzf/install --no-zsh --no-fish
+
 # --
 mkdir -p "$HOME/.config"
 
