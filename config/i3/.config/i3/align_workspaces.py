@@ -32,7 +32,7 @@ WORKSPACE_LAYOUTS = {
         Screen("DP-1.1.6", "2560x1440", range(0, 5)),
         Screen("DP-1.1.5", "2560x1440", range(5, 9)),
     ],
-    "laptop_only": [Screen(LAPTOP_SCREEN, "auto", range(0, 10))],
+    "work_laptop_only": [Screen(LAPTOP_SCREEN, "auto", range(0, 10))],
     # "hp": [
     #     Screen("VGA-1", 'auto', range(0, 9)),
     #     Screen("LVDS-1", '1920x1080', range(9, 10))
@@ -62,7 +62,7 @@ def get_connected_screens():
 
 def get_default_layout():
     # Find the matching workspace layout for the available screen names
-    default_layout = WORKSPACE_LAYOUTS["laptop_only"]
+    default_layout = WORKSPACE_LAYOUTS["work_laptop_only"]
     connected_screens = get_connected_screens()
 
     for layout in WORKSPACE_LAYOUTS.values():
