@@ -5,6 +5,16 @@ import subprocess
 
 # from collections import namedtuple
 from dataclasses import dataclass
+from enum import Enum
+
+LAPTOP_SCREEN_HOME = "eDP-1"
+LAPTOP_SCREEN_WORK = "DP-4"
+
+
+class Location(Enum):
+    HOME = 0
+    WORK = 1
+
 
 # Screen = namedtuple('Screen', ['name', 'resolution', 'workspaces'])
 
@@ -16,28 +26,54 @@ class Screen:
     workspaces: range
 
 
-LAPTOP_SCREEN = "DP-4"
-
-# TODO(damb): add configuration for `home`
 WORKSPACE_LAYOUTS = {
-    # "home": [
-    #     Screen("HDMI-1-0", 'auto', range(0, 9)),
-    #     Screen(LAPTOP_SCREEN, '1920x1080', range(9, 10))
-    # ],
-    # "presentation": [
-    #     Screen("HDMI-1-0", '1920x1080', range(0, 5)),
-    #     Screen(LAPTOP_SCREEN, '1920x1080', range(5, 10))
-    # ],
-    "work": [
-        Screen("DP-1.1.6", "2560x1440", range(0, 5)),
-        Screen("DP-1.1.5", "2560x1440", range(5, 9)),
-    ],
-    "work_laptop_only": [Screen(LAPTOP_SCREEN, "auto", range(0, 10))],
+    "home": (
+        Location.HOME,
+        [
+            Screen("HDMI-2", "2560x1440", range(0, 5)),
+            Screen("DP-1", "2560x1440", range(5, 9)),
+        ],
+    ),
+    "home_laptop_only": (
+        Location.HOME,
+        [Screen(LAPTOP_SCREEN_HOME, "auto", range(0, 10))],
+    ),
+    # "work_presentation": (
+    #     Location.WORK,
+    #     [
+    #         Screen("HDMI-1-0", "1920x1080", range(0, 5)),
+    #         Screen(LAPTOP_SCREEN_WORK, "1920x1080", range(5, 10)),
+    #     ],
+    # ),
+    "work": (
+        Location.WORK,
+        [
+            Screen("DP-1.1.6", "2560x1440", range(0, 5)),
+            Screen("DP-1.1.5", "2560x1440", range(5, 9)),
+        ],
+    ),
+    "work_laptop_only": (
+        Location.WORK,
+        [Screen(LAPTOP_SCREEN_WORK, "auto", range(0, 10))],
+    ),
     # "hp": [
     #     Screen("VGA-1", 'auto', range(0, 9)),
     #     Screen("LVDS-1", '1920x1080', range(9, 10))
     # ],
 }
+
+
+def get_laptop_screen(location):
+    """
+    Returns the laptop screen's identifier.
+    """
+    assert isinstance(location, Location)
+
+    if location == Location.HOME:
+        return LAPTOP_SCREEN_HOME
+
+    return LAPTOP_SCREEN_WORK
+
 
 # def get_connected_screens():
 #     # Query available screens
@@ -60,30 +96,24 @@ def get_connected_screens():
     return connected_screens
 
 
-def get_default_layout():
-    # Find the matching workspace layout for the available screen names
-    default_layout = WORKSPACE_LAYOUTS["work_laptop_only"]
-    connected_screens = get_connected_screens()
-
-    for layout in WORKSPACE_LAYOUTS.values():
-        screen_names = [screen.name for screen in layout]
-        if set(screen_names).issubset(set(connected_screens)):
-            default_layout = layout
-            break
-
-    return default_layout
+def is_laptop_screen_on(location):
+    """
+    Returns whether the laptop screen should be switched on.
+    """
+    return location is Location.WORK
 
 
 def reorder_workspaces(layout_name):
-    # Determine the workspace layout based on the selected configuration or matching layout
-    if layout_name in WORKSPACE_LAYOUTS:
-        screens = WORKSPACE_LAYOUTS[layout_name]
-    else:
-        screens = get_default_layout()
+    assert layout_name in WORKSPACE_LAYOUTS
+    location, screens = WORKSPACE_LAYOUTS[layout_name]
 
-    # Turn off all connected screens except the laptop screen
     connected_screens = get_connected_screens()
-    connected_screens.pop(connected_screens.index(LAPTOP_SCREEN))
+
+    # Depending on the `location` turn off all connected screens except the
+    # laptop screen (i.e. in this case the laptop screen always is turned on)
+    if is_laptop_screen_on(location):
+        connected_screens.pop(connected_screens.index(get_laptop_screen(location)))
+
     xrandr_cmd = ["xrandr"]
     for screen in connected_screens:
         xrandr_cmd.extend(["--output", screen, "--off"])
@@ -101,8 +131,6 @@ def reorder_workspaces(layout_name):
         xrandr_cmd.extend(["--output", output])
 
         if mode == "auto":
-            xrandr_cmd.append("--auto")
-        elif mode == "off":
             xrandr_cmd.append("--auto")
         else:
             xrandr_cmd.extend(["--mode", mode])
@@ -154,7 +182,7 @@ if __name__ == "__main__":
         "config",
         nargs="?",
         choices=WORKSPACE_LAYOUTS.keys(),
-        help="Configuration option",
+        help="Layout configuration",
     )
     args = parser.parse_args()
 
