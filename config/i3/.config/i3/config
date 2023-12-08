@@ -242,13 +242,6 @@ bindsym $mod+x move workspace to output right
 # NOTE(damb): `arandr` may be of great help to configure the screens.
 exec_always --no-startup-id $HOME/.config/i3/align_workspaces.py $screenlayout
 
-# Laptop, only
-# exec_always --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off 
-# Two external 27" monitors - home
-# exec_always --no-startup-id xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal
-# Two external 27" monitors + Laptop - home
-# exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --pos 5120x0 --rotate normal --output DP-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal 
-
 # Desktop background
 exec_always --no-startup-id feh --bg-scale $HOME/.config/bg/TorresDelPaine.jpg
 # exec_always --no-startup-id feh --bg-scale $HOME/.config/bg/TresMarias.jpg $HOME/.config/bg/TorresDelPaine.jpg
