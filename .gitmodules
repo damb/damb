@@ -97,3 +97,6 @@
 [submodule "fzf"]
 	path = config/fzf/.fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "nvim-tree.lua"]
+	path = config/nvim/.config/nvim/pack/bundle/opt/nvim-tree.lua
+	url = https://github.com/nvim-tree/nvim-tree.lua

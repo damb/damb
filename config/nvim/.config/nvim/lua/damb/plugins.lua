@@ -17,6 +17,7 @@ if vim.o.loadplugins then
   vim.cmd("packadd! nvim-autopairs")
   vim.cmd("packadd! nvim-cmp")
   vim.cmd("packadd! nvim-lspconfig")
+  vim.cmd("packadd! nvim-tree.lua")
   vim.cmd("packadd! nvim-treesitter")
   vim.cmd("packadd! plenary.nvim")
   vim.cmd("packadd! termdebug")

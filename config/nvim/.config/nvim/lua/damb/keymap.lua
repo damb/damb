@@ -8,7 +8,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- normal mode (=n) --
-keymap("n", "<Leader>e", ":Lex 30<CR>", opts)
+keymap("n", "<Leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- open last buffer (i.e. the alternate file)
 keymap("n", "<Leader><Leader>", "<C-^>", opts)

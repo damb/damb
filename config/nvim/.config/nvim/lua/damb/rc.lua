@@ -24,6 +24,8 @@ if vi then
   vim.opt.loadplugins = false
 end
 
+vim.g.loaded_netrw = 1 -- disable netrw i.e. pretend netrw is already loaded
+vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true -- show line numbers in gutter
 vim.opt.pumblend = 10 -- pseudo-transparency for popup-menu
 vim.opt.pumheight = 20 -- max number of lines to show in pop-up menu
