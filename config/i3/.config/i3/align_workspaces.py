@@ -56,6 +56,13 @@ WORKSPACE_LAYOUTS = {
         Location.WORK,
         [Screen(LAPTOP_SCREEN_WORK, "auto", range(0, 10))],
     ),
+    "work_at_home": (
+        Location.HOME,
+        [
+            Screen("HDMI-0", "2560x1440", range(0, 5)),
+            Screen("DP-1", "2560x1440", range(5, 9)),
+        ],
+    ),
     # "hp": [
     #     Screen("VGA-1", 'auto', range(0, 9)),
     #     Screen("LVDS-1", '1920x1080', range(9, 10))
