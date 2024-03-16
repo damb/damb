@@ -8,4 +8,4 @@ else
   screenlayout="work"
 fi
 
-i3-msg exec "$HOME/.config/i3/align_workspaces.py $screenlayout"
+i3-msg exec "$HOME/.config/i3/screenlayout.py $screenlayout"
