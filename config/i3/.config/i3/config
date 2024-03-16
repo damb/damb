@@ -15,6 +15,7 @@ set $mod Mod4
 #   - "home_laptop_only"
 #   - "work"
 #   - "work_laptop_only"
+#   - "work_presentation"
 #   - "work_at_home"
 # set $screenlayout "work_laptop_only"
 # set $screenlayout "work_at_home"

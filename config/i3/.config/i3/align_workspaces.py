@@ -38,13 +38,6 @@ WORKSPACE_LAYOUTS = {
         Location.HOME,
         [Screen(LAPTOP_SCREEN_HOME, "auto", range(0, 10))],
     ),
-    # "work_presentation": (
-    #     Location.WORK,
-    #     [
-    #         Screen("HDMI-1-0", "1920x1080", range(0, 5)),
-    #         Screen(LAPTOP_SCREEN_WORK, "1920x1080", range(5, 10)),
-    #     ],
-    # ),
     "work": (
         Location.WORK,
         [
@@ -56,6 +49,13 @@ WORKSPACE_LAYOUTS = {
         Location.WORK,
         [Screen(LAPTOP_SCREEN_WORK, "auto", range(0, 10))],
     ),
+    "work_presentation": (
+        Location.WORK,
+        [
+            Screen("HDMI-0", "2560x1440", range(0, 5)),
+            Screen(LAPTOP_SCREEN_WORK, "2560x1440", range(5, 9)),
+        ],
+    ),
     "work_at_home": (
         Location.HOME,
         [
@@ -63,10 +63,6 @@ WORKSPACE_LAYOUTS = {
             Screen("DP-1", "2560x1440", range(5, 9)),
         ],
     ),
-    # "hp": [
-    #     Screen("VGA-1", 'auto', range(0, 9)),
-    #     Screen("LVDS-1", '1920x1080', range(9, 10))
-    # ],
 }
 
 
