@@ -3,9 +3,9 @@ hostname=$(hostname)
 
 if [[ "${hostname}" = "vega" ]]
 then
-  screenlayout="home"
+  screenlayout="home_laptop_only"
 else
-  screenlayout="work"
+  screenlayout="work_laptop_only"
 fi
 
 i3-msg exec "$HOME/.config/i3/screenlayout.py $screenlayout"
