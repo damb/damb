@@ -221,7 +221,7 @@ bindsym $mod+x move workspace to output right
 exec --no-startup-id $HOME/.config/i3/screenlayout.py
 
 set $mode_monitor Switch screenlayout: \
-  $mod+([d]efault|[p]resentation|[h]ome|[w]ork
+  $mod+([d]efault|[h]ome|[w]ork|[p]resentation
 bindsym $mod+m mode "$mode_monitor"
 mode --pango_markup "$mode_monitor" {
         # These bindings trigger as soon as entering the $mode_monitor
