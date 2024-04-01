@@ -35,7 +35,7 @@ set $base0F #fcc09e
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 5
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -174,7 +174,7 @@ mode "$mode_resize" {
 #
 bar {
         status_command i3blocks -c $HOME/.config/i3/i3blocks.conf
-        font pango:DejaVu Sans Mono 9
+        # font pango:DejaVu Sans Mono 9
 }
 
 # -----------------------------------------------------------------------------
@@ -218,26 +218,21 @@ bindsym $mod+x move workspace to output right
 # Monitor setup and screen layout
 # NOTE(damb): `arandr` may be of great help to configure the screens.
 
-exec --no-startup-id $HOME/.config/i3/set_default_screenlayout.sh
+exec --no-startup-id $HOME/.config/i3/screenlayout.py
 
 set $mode_monitor Switch screenlayout: \
-  home: $mod+([d]efault|[o]nly)  |\
-  work: $mod+Shift+([d]efault|[o]nly|[p]resentation|[h]ome)
+  $mod+([d]efault|[p]resentation|[h]ome|[w]ork
 bindsym $mod+m mode "$mode_monitor"
 mode --pango_markup "$mode_monitor" {
         # These bindings trigger as soon as entering the $mode_monitor
         bindsym $mod+d exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "home"
-        bindsym $mod+o exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "home_laptop_only"
-        bindsym $mod+Shift+d exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "work"
-        bindsym $mod+Shift+o exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "work_laptop_only"
-        bindsym $mod+Shift+p exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "work_presentation"
-        bindsym $mod+Shift+h exec --no-startup-id \
-          $HOME/.config/i3/screenlayout.py "work_at_home"
+          $HOME/.config/i3/screenlayout.py "default"
+        bindsym $mod+p exec --no-startup-id \
+          $HOME/.config/i3/screenlayout.py "work:presentation"
+        bindsym $mod+h exec --no-startup-id \
+          $HOME/.config/i3/screenlayout.py "home:two_external_screens"
+        bindsym $mod+w exec --no-startup-id \
+          $HOME/.config/i3/screenlayout.py "work:two_external_screens"
 
         # back to normal: Enter or Escape or $mod+m
         bindsym Return mode "default"

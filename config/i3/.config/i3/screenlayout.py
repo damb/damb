@@ -2,12 +2,16 @@
 
 import argparse
 import subprocess
+import socket
 
 from dataclasses import dataclass
 from enum import Enum
 
-LAPTOP_SCREEN_HOME = "eDP-1"
-LAPTOP_SCREEN_WORK = "DP-4"
+_HOSTNAMES = ("vega", "pluto")
+_LOCATIONS = ("home", "work")
+
+_LAPTOP_SCREEN_VEGA = "eDP-1"
+_LAPTOP_SCREEN_PLUTO = "DP-4"
 
 
 class Location(Enum):
@@ -21,56 +25,55 @@ class Screen:
     resolution: str
 
 
-SCREEN_LAYOUTS = {
-    "home": (
-        Location.HOME,
-        [
-            Screen("HDMI-2", "2560x1440"),
-            Screen("DP-1", "2560x1440"),
-        ],
-    ),
-    "home_laptop_only": (
-        Location.HOME,
-        [Screen(LAPTOP_SCREEN_HOME, "auto")],
-    ),
-    "work": (
-        Location.WORK,
-        [
-            Screen("DP-1.1.6", "2560x1440"),
-            Screen("DP-1.1.5", "2560x1440"),
-        ],
-    ),
-    "work_laptop_only": (
-        Location.WORK,
-        [Screen(LAPTOP_SCREEN_WORK, "auto")],
-    ),
-    "work_presentation": (
-        Location.WORK,
-        [
-            Screen("HDMI-0", "2560x1440"),
-            Screen(LAPTOP_SCREEN_WORK, "2560x1440"),
-        ],
-    ),
-    "work_at_home": (
-        Location.HOME,
-        [
-            Screen("HDMI-0", "2560x1440"),
-            Screen("DP-1", "2560x1440"),
-        ],
-    ),
+_SCREEN_LAYOUTS_VEGA = {
+    (None, "default"): [Screen(_LAPTOP_SCREEN_VEGA, "auto")],
+    (Location.HOME, "two_external_screens"): [
+        Screen("HDMI-2", "2560x1440"),
+        Screen("DP-1", "2560x1440"),
+    ],
+}
+
+_SCREEN_LAYOUTS_PLUTO = {
+    (None, "default"): [Screen(_LAPTOP_SCREEN_PLUTO, "auto")],
+    (Location.WORK, "presentation"): [
+        Screen("HDMI-0", "2560x1440"),
+        Screen(_LAPTOP_SCREEN_PLUTO, "2560x1440"),
+    ],
+    (Location.WORK, "two_external_screens"): [
+        Screen("DP-1.1.6", "2560x1440"),
+        Screen("DP-1.1.5", "2560x1440"),
+    ],
+    (Location.HOME, "two_external_screens"): [
+        Screen("HDMI-0", "2560x1440"),
+        Screen("DP-1", "2560x1440"),
+    ],
 }
 
 
-def get_laptop_screen(location):
+def get_hostname():
+    """
+    Returns the hostname without domain name
+    """
+    return socket.gethostname().split(".")[0]
+
+
+def is_known_hostname(hostname):
+    """
+    Returns `True` if the hostname is known.
+    """
+    return hostname in _HOSTNAMES
+
+
+def get_laptop_screen(hostname):
     """
     Returns the laptop screen's identifier.
     """
-    assert isinstance(location, Location)
+    assert is_known_hostname(hostname)
 
-    if location == Location.HOME:
-        return LAPTOP_SCREEN_HOME
+    if hostname == "vega":
+        return _LAPTOP_SCREEN_VEGA
 
-    return LAPTOP_SCREEN_WORK
+    return _LAPTOP_SCREEN_PLUTO
 
 
 def get_connected_screens():
@@ -93,7 +96,16 @@ def get_connected_screens():
     return connected_screens
 
 
-def is_laptop_screen_on(location):
+def get_location_from_str(s: str):
+    assert s in _LOCATIONS
+
+    if s == "home":
+        return Location.HOME
+
+    return Location.WORK
+
+
+def is_laptop_screen_enabled(location):
     """
     Returns whether the laptop screen should be switched on.
     """
@@ -102,18 +114,24 @@ def is_laptop_screen_on(location):
     return location is Location.WORK
 
 
-def configure_screenlayout(layout_name):
-    assert layout_name in SCREEN_LAYOUTS
+def configure_screenlayout(hostname, config):
+    assert is_known_hostname(hostname)
 
-    location, screens = SCREEN_LAYOUTS[layout_name]
+    SCREEN_LAYOUTS = (
+        _SCREEN_LAYOUTS_VEGA if hostname == "vega" else _SCREEN_LAYOUTS_PLUTO
+    )
+    assert config in SCREEN_LAYOUTS
+
+    screens = SCREEN_LAYOUTS[config]
+    location, _ = config
 
     connected_screens = get_connected_screens()
 
     # Depending on the `location` turn off all connected screens except the
     # laptop screen (i.e. in this case the laptop screen always is turned on)
-    if is_laptop_screen_on(location):
+    if location is not None and is_laptop_screen_enabled(location):
         connected_screens.pop(
-            connected_screens.index(get_laptop_screen(location))
+            connected_screens.index(get_laptop_screen(hostname))
         )
 
     xrandr_cmd = ["xrandr"]
@@ -148,14 +166,31 @@ def configure_screenlayout(layout_name):
     subprocess.run(xrandr_cmd)
 
 
+def screenlayout_config(s: str):
+    if s == "default":
+        return (None, s)
+
+    config = s.split(":")
+    if len(config) != 2:
+        raise argparse.ArgumentError(f"invalid argument: {s}")
+
+    loc_str, screenlayout = config
+
+    if loc_str not in _LOCATIONS:
+        raise argparse.ArgumentError(f"invalid argument: {s}")
+
+    return (get_location_from_str(loc_str), screenlayout)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Configure screenlayout")
     parser.add_argument(
         "config",
         nargs="?",
-        choices=SCREEN_LAYOUTS.keys(),
-        help="Screenlayout configuration",
+        type=screenlayout_config,
+        default="default",
+        help='Screenlayout configuration. "default" or "location:layout"',
     )
     args = parser.parse_args()
 
-    configure_screenlayout(args.config)
+    configure_screenlayout(get_hostname(), args.config)
