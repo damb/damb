@@ -187,9 +187,12 @@ bindsym $mod+Shift+z exec --no-startup-id systemctl hibernate
 
 # mutt
 bindsym $mod+Ctrl+3 exec run-mutt.sh
-# screenshots
+
+# screenshots - scrot
 bindsym Print exec "scrot -u '%Y-%m-%dT%H:%M:%S_screenshot.png' -e 'mv $f ~/Screenshots/'"
-bindsym Ctrl+Print exec "scrot -u '%Y-%m-%dT%H:%M:%S_screenshot.png' -e 'xclip -selection clipboard -t image/png -i $f'
+bindsym Ctrl+Print exec "scrot -u '%Y-%m-%dT%H:%M:%S_screenshot.png' -e 'xclip -selection clipboard -t image/png -i $f'"
+# screenshots - flameshot
+bindsym Shift+Print exec "flameshot gui -p ~/Screenshots/"
 
 
 # PulseAudio key bindings
