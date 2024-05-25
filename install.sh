@@ -6,8 +6,8 @@ set -e
 create_symlink() {
 	local link_dir=$1
 	local target=$2
-  local real_target
-  real_target="${link_dir}/$(basename "${target}")"
+	local real_target
+	real_target="${link_dir}/$(basename "${target}")"
 	if [[ ! -L "${real_target}" ]]; then
 		if [[ -e "${real_target}" ]]; then
 			mv "${real_target}" "${real_target}.bak"
