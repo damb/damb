@@ -297,9 +297,12 @@ bindsym $mod+Shift+s exec --no-startup-id systemctl suspend
 bindsym $mod+Shift+z exec --no-startup-id systemctl hibernate
 
 # PulseAudio key bindings
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id \
+  pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id \
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id \
+  pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Brightness key bindings
 bindsym XF86MonBrightnessDown exec brightnessctl -d intel_backlight set 5%-
@@ -307,6 +310,13 @@ bindsym XF86MonBrightnessUp exec brightnessctl -d intel_backlight set +5%
 
 # mutt
 bindsym $mod+Ctrl+3 exec $term -e mutt
-# Screenshots
+# Screenshots (grimshot)
 bindsym Print exec "printf '/home/damb/Screenshots/%(%Y-%m-%dT%H:%M:%S)T_screenshot.png' | xargs grimshot save active"
+# Screenshots (flameshot)
+# https://github.com/emersion/xdg-desktop-portal-wlr/issues/39#issuecomment-638752975
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_SESSION
+# Required, in order to be able to copy screenshot to clipboard.
+exec flameshot
+bindsym Shift+Print exec "flameshot gui --clipboard --path ~/Screenshots/"
 
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0

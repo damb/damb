@@ -57,5 +57,8 @@ create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
 create_symlink "$HOME/.config" "config/i3/.config/i3"
 # sway
 create_symlink "$HOME/.config" "config/sway/.config/sway"
+# flameshot
+create_symlink "$HOME/.config" "config/flameshot/.config/flameshot"
+create_symlink "$HOME/.config" "config/xdg-desktop-portal/.config/xdg-desktop-portal"
 
 exit 0
