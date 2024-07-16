@@ -1,4 +1,7 @@
-vim.o.background = "dark" -- use "light" for light mode
+vim.o.background = "dark" -- "dark|light"
+
+vim.g.gruvbox_contrast_dark = "medium" -- "soft|medium|hard"
+vim.g.gruvbox_contrast_light = "medium" -- "soft|medium|hard"
 
 local colorscheme = "gruvbox"
 
