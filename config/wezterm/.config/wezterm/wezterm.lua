@@ -22,11 +22,14 @@ config.colors = {
 config.enable_scroll_bar = false
 config.enable_tab_bar = false
 config.font_size = 10
+-- Disable ligatures for most fonts
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.inactive_pane_hsb = {
   saturation = 0.9,
   brightness = 0.9,
 }
 config.scrollback_lines = 10000
 config.warn_about_missing_glyphs = false
+
 
 return config
