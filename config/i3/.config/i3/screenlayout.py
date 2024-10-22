@@ -36,8 +36,8 @@ _SCREEN_LAYOUTS_VEGA = {
 _SCREEN_LAYOUTS_PLUTO = {
     (None, "default"): [Screen(_LAPTOP_SCREEN_PLUTO, "auto")],
     (Location.WORK, "presentation"): [
-        Screen("HDMI-0", "2560x1440"),
-        Screen(_LAPTOP_SCREEN_PLUTO, "2560x1440"),
+        Screen("HDMI-0", "3840x2160"),
+        Screen(_LAPTOP_SCREEN_PLUTO, "2560x1600"),
     ],
     (Location.WORK, "two_external_screens"): [
         Screen("DP-1.1.6", "2560x1440"),
@@ -162,7 +162,7 @@ def configure_screenlayout(hostname, config):
         if screen == screens[0]:
             xrandr_cmd.append("--primary")
 
-    # print(xrandr_cmd)
+    print(xrandr_cmd)
     subprocess.run(xrandr_cmd)
 
 
