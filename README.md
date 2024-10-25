@@ -17,7 +17,10 @@ First of all, make sure the required dependencies are installed. E.g.
     Install dependencies:
 
     ```
-    emerge --ask media-fonts/firacode-nerdfont dev-vcs/git app-editors/neovim
+    emerge --ask \
+        dev-vcs/git app-editors/neovim \
+        media-fonts/firacode-nerdfont \
+        media-fonts/font-awesome \
     ```
 
 
