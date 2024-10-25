@@ -32,6 +32,7 @@ set $base0C #97e0ff
 set $base0D #97bbf7
 set $base0E #c0b7f9
 set $base0F #fcc09e
+set $base10 #aa0000
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -249,9 +250,9 @@ exec_always --no-startup-id feh --bg-scale $HOME/.config/bg/TorresDelPaine.jpg
 #    feh --bg-scale $HOME/.config/bg/TresMarias.jpg $HOME/.config/bg/TorresDelPaine.jpg
 
 # Window colors
-#                         border  background text    indicator
-  client.focused          $base01 $base01    $base07 $base0F
-  client.focused_inactive $base02 $base02    $base03 $base0F
-  client.unfocused        $base02 $base02    $base03 $base0F
-  client.urgent           $base02 $base08    $base00 $base0F
+#                       border  background text    indicator
+client.focused          $base10 $base10    $base07 $base0F
+client.focused_inactive $base02 $base02    $base03 $base0F
+client.unfocused        $base02 $base02    $base03 $base0F
+client.urgent           $base02 $base08    $base00 $base0F
 
