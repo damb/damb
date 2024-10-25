@@ -162,7 +162,7 @@ def configure_screenlayout(hostname, config):
         if screen == screens[0]:
             xrandr_cmd.append("--primary")
 
-    print(xrandr_cmd)
+    # print(xrandr_cmd)
     subprocess.run(xrandr_cmd)
 
 
