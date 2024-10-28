@@ -82,10 +82,7 @@ def get_connected_screens():
     """
     # Query available screens
     xrandr_output = (
-        subprocess.check_output(["xrandr", "--query"])
-        .decode()
-        .strip()
-        .split("\n")
+        subprocess.check_output(["xrandr", "--query"]).decode().strip().split("\n")
     )
     connected_screens = []
     for line in xrandr_output:
@@ -130,9 +127,7 @@ def configure_screenlayout(hostname, config):
     # Depending on the `location` turn off all connected screens except the
     # laptop screen (i.e. in this case the laptop screen always is turned on)
     if location is not None and is_laptop_screen_enabled(location):
-        connected_screens.pop(
-            connected_screens.index(get_laptop_screen(hostname))
-        )
+        connected_screens.pop(connected_screens.index(get_laptop_screen(hostname)))
 
     xrandr_cmd = ["xrandr"]
     for screen in connected_screens:
