@@ -40,8 +40,8 @@ _SCREEN_LAYOUTS_PLUTO = {
         Screen(_LAPTOP_SCREEN_PLUTO, "2560x1600"),
     ],
     (Location.WORK, "two_external_screens"): [
-        Screen("DP-1.1.6", "2560x1440"),
-        Screen("DP-1.1.5", "2560x1440"),
+        Screen("DP-1-1.1.6", "2560x1440"),
+        Screen("DP-1-1.1.5", "2560x1440"),
     ],
     (Location.HOME, "two_external_screens"): [
         Screen("HDMI-1-0", "2560x1440"),
