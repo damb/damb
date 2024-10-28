@@ -11,7 +11,7 @@ _HOSTNAMES = ("vega", "pluto")
 _LOCATIONS = ("home", "work")
 
 _LAPTOP_SCREEN_VEGA = "eDP-1"
-_LAPTOP_SCREEN_PLUTO = "DP-4"
+_LAPTOP_SCREEN_PLUTO = "eDP-1"
 
 
 class Location(Enum):
@@ -36,7 +36,7 @@ _SCREEN_LAYOUTS_VEGA = {
 _SCREEN_LAYOUTS_PLUTO = {
     (None, "default"): [Screen(_LAPTOP_SCREEN_PLUTO, "auto")],
     (Location.WORK, "presentation"): [
-        Screen("HDMI-0", "3840x2160"),
+        Screen("HDMI-1-0", "3840x2160"),
         Screen(_LAPTOP_SCREEN_PLUTO, "2560x1600"),
     ],
     (Location.WORK, "two_external_screens"): [
@@ -44,8 +44,8 @@ _SCREEN_LAYOUTS_PLUTO = {
         Screen("DP-1.1.5", "2560x1440"),
     ],
     (Location.HOME, "two_external_screens"): [
-        Screen("HDMI-0", "2560x1440"),
-        Screen("DP-1", "2560x1440"),
+        Screen("HDMI-1-0", "2560x1440"),
+        Screen("DP-1-1", "2560x1440"),
     ],
 }
 
