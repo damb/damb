@@ -1,6 +1,6 @@
 [user]
-	name = Daniel Armbruster
-	email = dani.armbruster@gmail.com
+  name = Daniel Armbruster
+  email = dani.armbruster@gmail.com
 [merge]
   tool = nvim -d
 [color]
