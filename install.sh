@@ -42,7 +42,12 @@ done
 
 # fzf
 create_symlink "$HOME" config/fzf/.fzf
-~/.fzf/install --no-zsh --no-fish
+~/.fzf/install \
+  --completion \
+  --key-bindings \
+  --no-update-rc \
+  --no-zsh \
+  --no-fish
 
 # --
 mkdir -p "$HOME/.config"
