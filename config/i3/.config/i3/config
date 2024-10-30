@@ -222,6 +222,9 @@ bindsym $mod+u border none
 # (effectively toggles when you only have two outputs)
 bindsym $mod+x move workspace to output right
 
+# Toggle touchpad
+bindsym XF86Messenger exec $HOME/.config/i3/touchpad.sh
+
 # Monitor setup and screen layout
 # NOTE(damb): `arandr` may be of great help to configure the screens.
 
