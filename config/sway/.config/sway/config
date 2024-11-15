@@ -51,26 +51,23 @@ font pango:DejaVu Sans Mono 8
 # /usr/share/backgrounds/sway/) (i.e. if compiled with +USE wallpapers)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
-# 1. Configure the output using `wdisplays`
-# 2. Extract the current configuration settings from the `swaymsg -t
-# get_outputs` command
+exec --no-startup-id $config/sway/screenlayout.py
 
-# Laptop, only
-# output HDMI-A-2 disable
-# output DP-1 disable
-# output eDP-1 resolution 1920x1080 pos 0 0 scale 1 bg $config/bg/TorresDelPaine.jpg fill
-##
-# Two external 27" monitors
-output HDMI-A-2 resolution 2560x1440@59.951Hz pos 0 0 bg $config/bg/TresMarias.jpg fill
-output DP-1 resolution 2560x1440@59.951Hz pos 2560 0 bg $config/bg/TorresDelPaine.jpg fill
-output eDP-1 disable
-#
-# Two external 27" monitors + Laptop 
-# (2023-11-15): doesn't seem to work at the time being
-# output HDMI-A-2 resolution 2560x1440@59.951Hz pos 0 0  bg $config/bg/TresMarias.jpg fill 
-# output DP-1 resolution 2560x1440@59.951Hz pos 2560 0 bg $config/bg/TorresDelPaine.jpg fill
-# output eDP-1 resolution 2560x1440@60.012Hz pos 5120 0 scale 1 bg $config/bg/TorresDelPaine.jpg fill
+set $mode_monitor Switch screenlayout: \
+  $mod+([d]efault|[h]ome)
+bindsym $mod+m mode "$mode_monitor"
+mode --pango_markup "$mode_monitor" {
+        # These bindings trigger as soon as entering the $mode_monitor
+        bindsym $mod+d exec --no-startup-id  \
+          $config/sway/screenlayout.py "default"
+        bindsym $mod+h exec --no-startup-id \
+          $config/sway/screenlayout.py "home:two_external_screens"
 
+        # back to normal: Enter or Escape or $mod+m
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+}
 
 ### Idle configuration
 #
@@ -278,9 +275,10 @@ bindsym $mod+y border pixel 3
 # Use neither window title nor border
 bindsym $mod+u border none
 
-# Move the current workspace to the next output
+# Move the current workspace to the previous/next output
 # (effectively toggles when you only have two outputs)
 bindsym $mod+x move workspace to output right
+bindsym $mod+z move workspace to output left
 
 # Window colors
 #                       border  background text    indicator
