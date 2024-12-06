@@ -19,8 +19,8 @@ create_symlink() {
 
 create_bashrc() {
 	local bashrc="$HOME/.bashrc"
-	if [[ ! -L "$bashrc" ]]; then
-		if [[ -e "$bashrc" ]]; then
+	if [[ ! -L "${bashrc}" ]]; then
+		if [[ -e "${bashrc}" ]]; then
 			mv "$bashrc" "${bashrc}.bak"
 		fi
 

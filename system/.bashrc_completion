@@ -1,12 +1,12 @@
 #!/bin/bash
 
-path_completion="$HOME/.local/etc/bash_completion.d"
+path_completion="${HOME}/.local/etc/bash_completion.d"
 
-if [[ -d "$path_completion" ]]
+if [[ -d "${path_completion}" ]]
 then
-  for f in "$path_completion"/*
+  for f in "${path_completion}"/*
   do
-    test -f "$f" && . "$f"
+    test -f "${f}" && . "${f}"
   done
 fi
 

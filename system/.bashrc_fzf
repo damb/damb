@@ -2,11 +2,11 @@
 
 path_fzf_shell="$HOME/.fzf/shell" 
 
-if [[ -d "$path_fzf_shell" ]]
+if [[ -d "${path_fzf_shell}" ]]
 then
-  for f in "$path_fzf_shell"/*.bash
+  for f in "${path_fzf_shell}"/*.bash
   do
-    test -f "$f" && . "$f"
+    test -f "${f}" && . "${f}"
   done
 fi
 
