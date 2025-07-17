@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+# Description: helper functions to manage my development docker container
+# ----
+
+_create_fifo() {
+  # XXX(damb): required by `anymal_docker`
+  local path_shutdown_fifo=/var/run/robot/shutdown_pipe
+  sudo mkdir -p $(dirname "${path_shutdown_fifo}")
+  test ! -p "${path_shutdown_fifo}" && sudo mkfifo --mode=666 "${path_shutdown_fifo}"
+}
+
+# Start the development container with the name "dev"
+dev_start() {
+  _create_fifo
+	docker start dev
+}
+
+# Run a new development container with the name "dev"
+dev_run() {
+	local tag="${1:-nightly}"
+	local image="docker.anybotics.com/anybotics-infrastructure/docker-images/anymal-development:${tag}"
+  
+  _create_fifo
+
+  # XXX(damb): we use `anymal_docker` to launch the container.
+	dev-docker -x \
+		-e "TERM=xterm-256color" \
+		--name=dev \
+		"${image}" \
+    bash
+}
+
+# pull docker container from ANYbotics registry
+dev_pull() {
+	local version_img="${1:-nightly}"
+
+	bash -c "anymal_docker pull --stack dev ${version_img}"
+}
+
+# stop the dev container
+dev_stop() {
+	docker kill dev
+	if [[ "$1" == "--rm" ]]; then
+		docker rm dev
+	fi
+}
+
+# run a command in the dev container
+dev_exec() {
+  if ! docker ps --format '{{.Names}}' | grep -q '^dev$'; then
+    echo "Container 'dev' is not running. Starting it now ..."
+    dev_start
+  fi
+
+	docker exec -it -u $USER -w "/home/${USER}" dev $@ 
+}
+
+dev() {
+	if [[ $# -gt 0 ]]; then
+		case "${1}" in
+		"pull")
+			shift
+			dev_pull $@
+			;;
+		"start")
+			shift
+			dev_start $@
+			;;
+		"run")
+			shift
+			dev_run $@
+			;;
+		"stop")
+			shift
+			dev_stop $@
+			;;
+		"exec")
+			shift
+			dev_exec $@
+			;;
+		esac
+	else
+		dev_exec bash
+	fi
+}
