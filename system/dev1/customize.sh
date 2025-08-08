@@ -52,7 +52,7 @@ sudo apt autoremove -y
 sudo apt clean
 
 # XXX(damb): this file is sourced by `~/.bashrc_custom`.
-echo 'export PS1="(dev) \[\033]0;\u@\h:\w\007\]\[\033[01;36m\]\u@\h\[\033[01;34m\] \w \$ \[\033[00m\]"' | tee --append ${HOME}/.bashrc_dev
+echo 'export PS1="(dev1) \[\033]0;\u@\h:\w\007\]\[\033[01;36m\]\u@\h\[\033[01;34m\] \w \$ \[\033[00m\]"' | tee --append ${HOME}/.bashrc_dev
 
 PATH_DOTFILES="${HOME}/.dotfiles"
 pushd "${PATH_DOTFILES}"
