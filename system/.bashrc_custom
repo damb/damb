@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-. "${SCRIPT_DIR}/dev/dev_alias"
+. "${SCRIPT_DIR}/dev1/dev_alias"
 . "${SCRIPT_DIR}/dev2/dev_alias"
 
 # XXX(damb): this file is optionally written by `customize.sh`.
