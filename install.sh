@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # set -x
 set -e
@@ -21,7 +21,7 @@ create_bashrc() {
 	local bashrc="$HOME/.bashrc"
 	if [[ ! -L "${bashrc}" ]]; then
 		if [[ -e "${bashrc}" ]]; then
-			cp "$bashrc" "${bashrc}.bak"
+			mv "$bashrc" "${bashrc}.bak"
 		fi
 
 		ln -s -T "$HOME/.bash_profile" "$bashrc"
@@ -49,7 +49,9 @@ create_symlink "$HOME/.config" "config/nvim/.config/nvim"
 create_symlink "$HOME/.config" "config/wezterm/.config/wezterm"
 
 # XXX(damb): make use of parameter expansion: https://stackoverflow.com/a/13864829
-if [[ ! -z ${DAMB_DOTFILES_INSTALL_CONTAINER+x} ]]; then
+if [[ -z ${DAMB_DOTFILES_INSTALL_CONTAINER+x} ]]; then
+  # XXX(damb): run host installation
+  
 	# fzf
 	create_symlink "$HOME" config/fzf/.fzf
 	~/.fzf/install \
