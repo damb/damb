@@ -16,7 +16,7 @@ First of all, make sure the required dependencies are installed. E.g.
 
     Install dependencies:
 
-    ```
+    ```sh
     emerge --ask \
         dev-vcs/git app-editors/neovim \
         media-fonts/firacode-nerdfont \
@@ -26,19 +26,27 @@ First of all, make sure the required dependencies are installed. E.g.
 
 Next, clone the repository
 
-```
+```sh
 git clone --recurse-submodules git@github.com:damb/damb.git .dotfiles && \
   cd .dotfiles
 ```
 
 and run
 
-```
+```sh
 ./install.sh
 ```
 
+for an installation on a host system or 
+
+```sh
+DAMB_DOTFILES_INSTALL_CONTAINER=1 ./install.sh
+```
+
+if installing within a container.
+
 Finally source your `~/.bashrc`
 
-```
+```sh
 . ~/.bashrc
 ```
