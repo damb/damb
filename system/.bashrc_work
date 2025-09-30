@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Perception dev container
+export ANYBOTICS_PATH_REPOS="${HOME}/work/projects/ANYbotics"
+export ANYBOTICS_REPO_PATH="${ANYBOTICS_PATH_REPOS}/anybotics"
+export PERCEPTION_DEV_PATH="${ANYBOTICS_PATH_REPOS}/perception_dev"
+
+test -f "${PERCEPTION_DEV_PATH}/host_cli.bash" && . "${PERCEPTION_DEV_PATH}/host_cli.bash"
+# XXX(damb): only available in devcontainer
+test -f "${HOME}/.bashrc_devcontainer" && . "${HOME}/.bashrc_devcontainer" 
