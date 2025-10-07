@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export EDITOR="$(which nvim)"
+export GIT_EDITOR="${EDITOR}"
 
 # US English and UTF-8
 export LC_ALL="en_US.UTF-8"
